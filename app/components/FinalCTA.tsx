@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function FinalCTA() {
   return (
-    <section className="relative py-28 text-center overflow-hidden">
+    <section id="book" className="relative py-28 text-center overflow-hidden">
       
       {/* Background Glow */}
       <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 via-transparent to-pink-500/10 blur-3xl" />

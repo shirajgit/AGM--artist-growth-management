@@ -71,9 +71,10 @@ export default function Navbar() {
 
           {/* CTA */}
           <div className="hidden md:block">
+            <a href="#book">
             <button className="bg-gradient-to-r from-orange-500 to-pink-500 px-5 py-2 rounded-lg text-sm font-medium hover:scale-105 transition">
               Book Call
-            </button>
+            </button></a>
           </div>
 
           {/* MOBILE BUTTON */}
