@@ -17,9 +17,7 @@ export default function Footer() {
           
           {/* Brand */}
           <div>
-            <h3 className="text-lg font-semibold text-white">
-              Zephire Digital
-            </h3>
+            <img src="/logo.png" alt="" className="w-45" />
             <p className="text-gray-400 mt-3 text-sm">
               AI-powered growth systems for modern artists & creators.
               Build your brand. Grow your audience. Monetize your content.
