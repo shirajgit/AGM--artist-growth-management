@@ -35,13 +35,17 @@ export default function FinalCTA() {
         {/* CTA Buttons */}
         <div className="mt-10 flex justify-center gap-4 flex-wrap">
           
+          <a href="#audit">
           <button className="px-8 py-3 rounded-xl bg-gradient-to-r from-orange-500 to-pink-500 font-medium shadow-lg hover:scale-105 transition duration-200">
             Book Consultation
           </button>
+          </a>
 
+
+         <a href="#plans">
           <button className="px-8 py-3 rounded-xl border border-white/20 backdrop-blur-md hover:bg-white hover:text-black transition duration-200">
             View Plans
-          </button>
+          </button></a>
 
         </div>
 
