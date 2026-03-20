@@ -38,7 +38,7 @@ export default function Home() {
       
  
       {/* ================= AUDIT ================= */}
-      <section className="py-24 max-w-7xl mx-auto   gap-16 px-6 items-center">
+      <section id="audit" className="py-24 max-w-7xl mx-auto   gap-16 px-6 items-center">
         
        <Audit></Audit> 
       </section>

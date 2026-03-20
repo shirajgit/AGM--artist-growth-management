@@ -42,9 +42,10 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           
           {/* LOGO */}
+          <a href="#overview">
           <div className="   relative group cursor-pointer">
            <img src="/logo.png"  alt="" className="w-32 p-2" />
-          </div>
+          </div></a>
 
           {/* DESKTOP LINKS */}
           <div className="hidden md:flex items-center gap-8 text-sm text-gray-300">

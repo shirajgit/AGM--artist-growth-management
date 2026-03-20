@@ -24,12 +24,7 @@ const artists = [
     name: "Neha Verma",
     category: "Influencer",
     img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80",
-  },
-  {
-    name: "Arjun Patel",
-    category: "Vlogger",
-    img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80",
-  },
+  }, 
 ];
 
 export default function Artists() {

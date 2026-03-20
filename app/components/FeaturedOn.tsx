@@ -2,13 +2,13 @@
 
 import { motion } from "framer-motion";
 
-// Replace these URLs with your actual logo images
 const mediaLogos = [
-  { name: "Forbes", src: "/logos/forbes.png" },
-  { name: "Entrepreneur", src: "/logos/entrepreneur.png" },
-  { name: "Business Insider", src: "/logos/business-insider.png" },
-  { name: "YourStory", src: "/logos/yourstory.png" },
-  { name: "TechCrunch", src: "/logos/techcrunch.png" },
+  { name: "Forbes", src: "https://upload.wikimedia.org/wikipedia/commons/0/01/Forbes_logo.svg" },
+  { name: "Entrepreneur", src: "https://upload.wikimedia.org/wikipedia/commons/4/46/Entrepreneur_logo.svg" },
+  { name: "Business Insider", src: "https://upload.wikimedia.org/wikipedia/commons/3/32/Business_Insider_Logo.svg" },
+  { name: "YourStory", src: "https://upload.wikimedia.org/wikipedia/en/0/01/YourStory_logo.png" },
+  { name: "TechCrunch", src: "https://upload.wikimedia.org/wikipedia/commons/0/08/TechCrunch_logo.svg" },
+  { name: "Unsplash", src: "https://upload.wikimedia.org/wikipedia/commons/6/60/Unsplash_logo.svg" },
 ];
 
 export default function FeaturedOn() {
@@ -34,12 +34,13 @@ export default function FeaturedOn() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="p-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl hover:scale-105 transition-transform"
+              className="p-4 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl hover:scale-105 transition-transform flex items-center justify-center"
+              style={{ minWidth: "100px", minHeight: "60px" }} // ensure tiny SVGs still show
             >
               <img
                 src={logo.src}
                 alt={logo.name}
-                className="h-12 object-contain"
+                className="max-h-12 w-auto object-contain"
               />
             </motion.div>
           ))}

@@ -61,13 +61,16 @@ export default function Hero() {
 
     {/* CTA */}
     <div className="mt-8 flex gap-4 flex-wrap">
+      <a href="#audit">
       <button className="bg-gradient-to-r from-orange-500 to-pink-500 px-6 py-3 rounded-lg font-medium shadow-lg hover:scale-[1.04] transition-all duration-200">
         Start Growth
       </button>
-
+</a>
+ 
+    <a href="#plans">
       <button className="border border-white/20 px-6 py-3 rounded-lg backdrop-blur-md hover:bg-white hover:text-black transition-all duration-200">
         View Plans
-      </button>
+      </button></a>
     </div>
 
     {/* Trust Indicators */}
@@ -88,12 +91,12 @@ export default function Hero() {
   <div className="hidden md:flex justify-end">
     <div className="grid grid-cols-3 gap-4">
       {[
-           "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=400&q=80",
-            "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400&q=80",
-            "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=400&q=80",
-            "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80",
-            "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80",
-            "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80"
+           "/artist01.webp",
+            "/artist03.webp",
+            "/artist05.webp",
+            "/artist02.webp",
+            "/artist06.webp",
+            "/artist04.webp"
                         
       ].map((img, i) => (
         <motion.div
