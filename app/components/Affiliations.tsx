@@ -6,11 +6,11 @@ import Image from "next/image";
 export default function Affiliations() {
   const logos = [
     { name: "AWS", src: "https://cdn.worldvectorlogo.com/logos/aws-2.svg" },
-    { name: "YouTube", src: "https://cdn.worldvectorlogo.com/logos/youtube-icon.svg" },
+    { name: "YouTube", src: "/youtube.svg" },
     { name: "Spotify", src: "https://cdn.worldvectorlogo.com/logos/spotify-2.svg" },
     { name: "Apple Music", src: "https://cdn.worldvectorlogo.com/logos/apple-13.svg" },
-    { name: "Meta", src: "https://cdn.worldvectorlogo.com/logos/meta-1.svg" },
-    { name: "Google", src: "https://cdn.worldvectorlogo.com/logos/google-icon.svg" },
+    { name: "Meta", src: "/meta.svg" },
+    { name: "Google", src: "/google.svg" },
   ];
 
   return (
@@ -54,7 +54,7 @@ export default function Affiliations() {
               <Image
                 src={logo.src}
                 alt={logo.name}
-                width={50}
+                width={70}
                 height={50}
                 className="opacity-70 group-hover:opacity-100 transition"
               />

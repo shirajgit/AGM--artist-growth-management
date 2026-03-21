@@ -4,11 +4,26 @@ import { motion } from "framer-motion";
 
 // Replace these URLs with actual certification logos
 const certifications = [
-  { name: "Clutch", src: "/logos/clutch.png" },
-  { name: "HubSpot", src: "/logos/hubspot.png" },
-  { name: "Google Analytics", src: "/logos/google-analytics.png" },
-  { name: "LinkedIn Certified", src: "/logos/linkedin.png" },
-  { name: "Market Motive", src: "/logos/market-motive.png" },
+  {
+  name: "Clutch",
+  src: "/clutch-logo.svg",
+},
+  {
+    name: "HubSpot",
+    src: "https://upload.wikimedia.org/wikipedia/commons/3/3f/HubSpot_Logo.svg",
+  },
+  {
+    name: "Google Analytics",
+    src: "https://www.vectorlogo.zone/logos/google_analytics/google_analytics-icon.svg",
+  },
+  {
+    name: "LinkedIn Certified",
+    src: "https://www.vectorlogo.zone/logos/linkedin/linkedin-icon.svg",
+  },
+  {
+    name: "Market Motive",
+    src: "/motive.svg",
+  },
 ];
 
 export default function Certifications() {
