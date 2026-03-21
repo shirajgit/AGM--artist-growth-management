@@ -13,7 +13,7 @@ const phases = [
 
 export default function ZephireGrowthMethod() {
   return (
-    <section  className="py-28 bg-black text-white">
+    <section id="method" className="py-28 bg-black text-white">
       <div className="max-w-6xl mx-auto px-6 text-center">
         {/* Heading */}
         <motion.h2

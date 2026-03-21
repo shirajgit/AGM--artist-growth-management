@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 const artists = [
   {
@@ -24,20 +24,37 @@ const artists = [
     name: "Neha Verma",
     category: "Influencer",
     img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&q=80",
-  }, 
+  },
 ];
+
+// duplicate for infinite scroll
+const loopData = [...artists, ...artists];
 
 export default function Artists() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const scroll = (dir: "left" | "right") => {
-    if (!scrollRef.current) return;
-    const width = scrollRef.current.offsetWidth;
-    scrollRef.current.scrollBy({
-      left: dir === "left" ? -width / 1.5 : width / 1.5,
-      behavior: "smooth",
-    });
-  };
+  // AUTO SCROLL
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    let scrollAmount = 0;
+
+    const interval = setInterval(() => {
+      if (!el) return;
+
+      el.scrollLeft += 1;
+      scrollAmount += 1;
+
+      // reset for infinite illusion
+      if (scrollAmount >= el.scrollWidth / 2) {
+        el.scrollLeft = 0;
+        scrollAmount = 0;
+      }
+    }, 20);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="py-24 relative overflow-hidden">
@@ -58,34 +75,18 @@ export default function Artists() {
           Artists We <span className="text-orange-400">Work With</span>
         </motion.h2>
 
-        {/* Desktop Arrows */}
-        <div className="hidden md:flex justify-end gap-3 mb-4">
-          <button
-            onClick={() => scroll("left")}
-            className="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition"
-          >
-            ←
-          </button>
-          <button
-            onClick={() => scroll("right")}
-            className="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition"
-          >
-            →
-          </button>
-        </div>
-
         {/* Carousel */}
         <div
           ref={scrollRef}
-          className="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar"
+          className="flex gap-6 overflow-x-hidden"
         >
-          {artists.map((artist, i) => (
+          {loopData.map((artist, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              className="min-w-[260px] rounded-2xl overflow-hidden bg-white/5 border border-white/10 backdrop-blur-xl group hover:-translate-y-2 transition"
+              whileHover={{ scale: 1.05, rotate: 1 }}
+              className="relative min-w-[260px] rounded-2xl overflow-hidden 
+              bg-white/5 border border-white/10 backdrop-blur-xl 
+              transition duration-300 group"
             >
               {/* Image */}
               <div className="relative h-64 w-full">
@@ -93,21 +94,32 @@ export default function Artists() {
                   src={artist.img}
                   alt={artist.name}
                   fill
-                  className="object-cover group-hover:scale-110 transition duration-500"
+                  className="object-cover group-hover:scale-110 transition duration-700"
                 />
+
+                {/* Overlay Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               </div>
 
               {/* Info */}
-              <div className="p-5">
-                <h3 className="font-semibold text-lg">{artist.name}</h3>
-                <p className="text-sm text-gray-400">{artist.category}</p>
+              <div className="absolute bottom-0 p-5">
+                <h3 className="font-semibold text-lg text-white">
+                  {artist.name}
+                </h3>
+                <p className="text-sm text-gray-300">
+                  {artist.category}
+                </p>
               </div>
 
-              {/* Hover Glow */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-orange-500/10 to-pink-500/10 transition" />
+              {/* Glow Hover */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-r from-orange-500/20 to-pink-500/20 transition" />
             </motion.div>
           ))}
         </div>
+
+        {/* Edge Fade (pro look) */}
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-24 bg-gradient-to-r from-black to-transparent" />
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-24 bg-gradient-to-l from-black to-transparent" />
       </div>
     </section>
   );
